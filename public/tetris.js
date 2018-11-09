@@ -733,11 +733,12 @@ var startPauseTime;
 var pauseTime;
 
 /**
- * 0 = Normal
- * 1 = win
- * 2 = countdown
- * 3 = game not played
+ * 0 = Normal,
+ * 1 = win,
+ * 2 = countdown,
+ * 3 = game not played,
  * 9 = loss
+ * @type {number}
  */
 var gameState = 3;
 
@@ -746,14 +747,35 @@ var lineLimit;
 
 var replay;
 var watchingReplay = false;
+
+/**
+ * Current grey row to start lose animation
+ * @type {number}
+ */
 var toGreyRow;
+
+/**
+ * 1 = Sprint,
+ * 2 = Ultra,
+ * 3 = Dig,
+ * 4 = Dig Race,
+ * 5 = Zen,
+ * 6 = 20G,
+ * 7 = Dig Zen
+ * @type {number}
+ */
 var gametype;
+
+/**
+ * Dynamic params for a specific game type.
+ * Known options: digOffset, pieceSet, backFire, digraceType
+ */
 var gameparams;
 //TODO Make dirty flags for each canvas, draw them all at once during frame call.
 // var dirtyHold, dirtyActive, dirtyStack, dirtyPreview;
 var lastX, lastY, lastPos, lastLockDelay, landed;
 
-// Scoreing related status
+// Scoring related status
 var b2b;
 var combo;
 var level;
@@ -1051,6 +1073,7 @@ function init(gt, params) {
     digZenBuffer = 0;
   }
 
+  // Hide menu
   menu();
 
   // Only start a loop if one is not running already.
@@ -1639,7 +1662,7 @@ function gameLoop() {
       if (gameState === 0) {
         // Playing
 
-          update();
+        update();
 
         // TODO improve this with 'dirty' flags.
         /* farter */ // as you draw for lock delay brightness gradient... give this up..

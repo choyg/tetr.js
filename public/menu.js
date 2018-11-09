@@ -105,13 +105,16 @@ var key = {
     0: "---"
 };
 
-/**
- * Show and hide menus.
- */
 var menus     = document.getElementsByClassName('menu');
 var menuStack = [];
+/**
+ * Show and hide menus
+ * @param {number} menuIndex 
+ * @param {number} stackOper 
+ */
 function menu(menuIndex, stackOper) {
     var current = void 0;
+    // Hide all visible menus
     for (var i = 0, len = menus.length; i < len; i++) {
         if (menus[i].classList.contains('on')) {
             current = i;
@@ -119,14 +122,13 @@ function menu(menuIndex, stackOper) {
         menus[i].classList.remove('on');
     }
 
+    // Show specified menu
     if (menuIndex !== void 0) {
         menus[menuIndex].classList.add('on');
     }
 
-    if (stackOper === 1) {
-        if (current !== void 0) {
-            menuStack.push(current);
-        }
+    if (stackOper === 1 && current) {
+        menuStack.push(current);
     } else if (stackOper === -1) {
         current = menuStack.pop();
         if ((current !== void 0) && (menuIndex === void 0)) {

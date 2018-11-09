@@ -3,6 +3,9 @@ function Stack() {
 }
 /**
  * Creates a matrix for the playfield.
+ * @param {number} x Width of playfield
+ * @param {number} y Height of playfield
+ * @param {number} hy Hidden height of playfield above visible matrix
  */
 Stack.prototype.new = function(x, y, hy) {
   var cells = new Array(x);
