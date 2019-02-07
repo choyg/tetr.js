@@ -1,3 +1,3 @@
-# tetr.js
+# [tetr.js](https://tetrjs.com)
 
-Forked again from http://farter.tk/tetr.js/. Original fork at https://github.com/farteryhr/tetr.js is not up to date.
+Fork of https://github.com/simonlc/tetr.js and https://github.com/farteryhr/tetr.js.
